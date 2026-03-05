@@ -1,0 +1,63 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+.env.*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs
+*.log
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database files
+*.sqlite3
+*.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Model files (if large)
+*.pt
+*.pth
+*.bin
+
+# Node modules (if frontend added)
+node_modules/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Pytest cache
+.pytest_cache/
+
+# Mypy cache
+.mypy_cache/
