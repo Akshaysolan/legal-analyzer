@@ -1,42 +1,28 @@
 import streamlit as st
-import os
-from rag_pipeline import process_document, create_qa_chain
-from ml.risk_detector import detect_risk
+from database import create_table
 
-st.set_page_config(page_title="AI Legal Analyzer")
-st.title("⚖️ AI Legal / Policy Document Analyzer")
+create_table()
 
-api_key = st.text_input("Enter OpenAI API Key", type="password")
+st.set_page_config(page_title="AI Legal Analyzer", layout="wide")
 
-if api_key:
-    os.environ["OPENAI_API_KEY"] = api_key
+# Hide only sidebar
+st.markdown("""
+<style>
+[data-testid="stSidebar"] {display: none;}
+</style>
+""", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("Upload Legal PDF", type="pdf")
+if "page" not in st.session_state:
+    st.session_state.page = "login"
 
-if uploaded_file:
+if st.session_state.page == "login":
+    from pages.login import show_login
+    show_login()
 
-    st.success("Document Uploaded")
+elif st.session_state.page == "signup":
+    from pages.signup import show_signup
+    show_signup()
 
-    with st.spinner("Processing document..."):
-        vectorstore = process_document(uploaded_file)
-        qa_chain = create_qa_chain(vectorstore)
-
-    query = st.text_input("Ask a question about the document")
-
-    if query:
-
-        response = qa_chain.invoke({"query": query})
-
-        st.subheader("Answer:")
-        st.write(response["result"])
-
-        risk_score = detect_risk(response["result"])
-
-        st.subheader("Risk Score:")
-        st.write(f"{risk_score} / 5")
-
-        st.subheader("Source Chunks:")
-
-        for doc in response["source_documents"]:
-            st.write(doc.page_content[:300])
-            st.write("---")
+elif st.session_state.page == "analyzer":
+    from pages.analyzer import show_analyzer
+    show_analyzer()
