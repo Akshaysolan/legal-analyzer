@@ -2,8 +2,8 @@ streamlit==1.33.0
 langchain==0.1.16
 langchain-community==0.0.34
 langchain-groq==0.1.3
-faiss-cpu==1.7.4
-pypdf==4.2.0
-sentence-transformers==2.7.0
-python-dotenv==1.0.1
-tiktoken==0.7.0
+faiss-cpu==1.13.2
+pypdf
+tiktoken
+sentence-transformers
+python-dotenv
