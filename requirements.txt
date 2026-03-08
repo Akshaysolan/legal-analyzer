@@ -1,8 +1,8 @@
-streamlit
-langchain
-langchain-community
-langchain-groq
-faiss-cpu
-pypdf
-sentence-transformers
-scikit-learn
+streamlit==1.33.0
+langchain==0.1.16
+langchain-community==0.0.34
+langchain-groq==0.1.3
+faiss-cpu==1.7.4
+pypdf==4.2.0
+sentence-transformers==2.7.0
+scikit-learn==1.4.2
