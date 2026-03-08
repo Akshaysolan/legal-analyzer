@@ -4,7 +4,7 @@ from rag.embeddings import get_embeddings
 from rag.vectorstore import create_vectorstore
 from rag.retriever import get_retriever
 from rag.llm import get_llm
-from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain.chains import RetrievalQA
 
 
 def process_document(uploaded_file):
